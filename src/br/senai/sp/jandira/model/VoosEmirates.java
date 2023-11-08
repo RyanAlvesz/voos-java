@@ -12,6 +12,7 @@ public class VoosEmirates extends Voo{
         this.agencia = "Voos Emirates";
     }
 
+    @Override
     public String getAgencia() {
         return agencia;
     }

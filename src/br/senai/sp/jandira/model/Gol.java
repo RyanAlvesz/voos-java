@@ -12,6 +12,7 @@ public class Gol extends Voo{
         this.agencia = "Gol";
     }
 
+    @Override
     public String getAgencia() {
         return agencia;
     }

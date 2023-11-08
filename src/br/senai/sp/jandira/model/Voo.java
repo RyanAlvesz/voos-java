@@ -26,6 +26,9 @@ abstract class Voo {
         this.horaPartida = hora;
 
     }
+
+    public abstract String getAgencia();
+
     public int getNumeroVoo() {
         return numeroVoo;
     }

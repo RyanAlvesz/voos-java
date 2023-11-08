@@ -58,24 +58,31 @@ public class Menu {
         LocalDate newDate = LocalDate.of(2000, 1, 1);
 
         try {
+
             numeroVoo = Integer.parseInt(pesquisa);
-            System.out.println(numeroVoo);
+
         } catch (Exception erro){}
 
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pesquisa);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM uuuu");
             newDate = LocalDate.parse(pesquisa, formatter);
+
         } catch (Exception erro){}
 
-        for (Voo voo: voos) {
+        for (Voo voo : voos) {
+
+            String origem = voo.getOrigem(), destino = voo.getDestino();
             int nvoo = voo.getNumeroVoo();
-            if (pesquisa.equalsIgnoreCase(voo.getOrigem())){
+            LocalDate data = voo.getDataPartida();
+            System.out.println(voo.getDataPartida());
+
+            if (pesquisa.equalsIgnoreCase(origem)){
                 voosPesquisa.add(voo);
-            } else if (pesquisa.equalsIgnoreCase(voo.getDestino())) {
+            } else if (pesquisa.equalsIgnoreCase(destino)) {
                 voosPesquisa.add(voo);
             } else if (numeroVoo == nvoo) {
                 voosPesquisa.add(voo);
-            } else if (newDate == voo.getDataPartida()) {
+            } else if (pesquisa.equalsIgnoreCase(data.toString())) {
                 voosPesquisa.add(voo);
             }
         }
@@ -106,7 +113,7 @@ public class Menu {
                     System.out.println("Pesquise por Número do Voo, Origem, Destino ou Data de Partida");
                     pesquisar(scanner.nextLine());
                     System.out.println("");
-                    if (voosPesquisa.size() > 1){
+                    if (voosPesquisa.size() >= 1){
                         mostrarVoos(voosPesquisa);
                     }else{
                         System.out.println("Voo não encontrado");

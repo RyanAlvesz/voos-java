@@ -12,6 +12,7 @@ public class VooDelta extends Voo {
         this.agencia = "Voo Delta";
     }
 
+    @Override
     public String getAgencia() {
         return agencia;
     }
